@@ -1,3 +1,13 @@
+# TODO
+- Issue を立てる．以下のどちらがいいか聞く．
+  1. jq を nix から生成するようにして，if .type == "part" のところに，select(.path | IN("/dev/sda1", "/dev/sda2")) みたいにする
+  2. gpt.nix の中に，
+    ```if partition.content.skipFormat then ''
+              
+            '' else ""
+    ```
+    を追加して，if else でファイルシステムの種類ごとに dd で signature を書き込むか
+
 # disko - Declarative disk partitioning
 
 <!-- Generated with bing image generator (which uses dall-e-2): edge-gpt-image --prompt "Disco ball shooting a laser beam at one hard drive" -->

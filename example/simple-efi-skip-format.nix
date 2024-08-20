@@ -22,10 +22,10 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+                skipFormat = true;
               };
             };
           };
-          skipFormat = [ "/dev/sda1" "/dev/disk/by-partlabel/some-part-id" ];
         };
       };
     };

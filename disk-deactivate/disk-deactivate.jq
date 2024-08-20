@@ -34,7 +34,7 @@ def deactivate:
       # Remove the MBR bootstrap code
       "dd if=/dev/zero of=\(.path) bs=440 count=1"
     ]
-  elif .type == "part" then
+  elif .type == "part" and  then
     [
       "wipefs --all -f \(.path)"
     ]

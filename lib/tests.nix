@@ -51,6 +51,7 @@ let
       , extraInstallerConfig ? { }
       , extraSystemConfig ? { }
       , efi ? !pkgs.hostPlatform.isRiscV64
+      , preDisko ? ""
       , postDisko ? ""
       , testMode ? "module" # can be one of direct module cli
       , testBoot ? true # if we actually want to test booting or just create/mount
@@ -257,6 +258,9 @@ let
           machine.start()
           machine.succeed("echo -n 'additionalSecret' > /tmp/additionalSecret.key")
           machine.succeed("echo -n 'secretsecret' > /tmp/secret.key")
+
+          ${preDisko}
+
           ${lib.optionalString (testMode == "direct") ''
             # running direct mode
             machine.succeed("${tsp-format}")

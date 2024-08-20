@@ -30,6 +30,11 @@
       type = lib.types.str;
       description = "Format of the filesystem";
     };
+    skipFormat = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Skip formatting the filesystem";
+    };
     _parent = lib.mkOption {
       internal = true;
       default = parent;

@@ -177,6 +177,11 @@ in
         fi
         ${lib.concatStrings (map (partition: ''
           # try to create the partition, if it fails, try to change the type and name
+          ${
+            if partition.content.skipFormat then ''
+              
+            '' else ""
+          }
           if ! sgdisk \
             --align-end ${lib.optionalString (partition.alignment != 0) ''--set-alignment=${builtins.toString partition.alignment}''} \
             --new=${toString partition._index}:${partition.start}:${partition.end} \
