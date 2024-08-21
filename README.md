@@ -1,6 +1,6 @@
 # TODO
 - Issue を立てる．以下のどちらがいいか聞く．
-  1. jq を nix から生成するようにして，if .type == "part" のところに，select(.path | IN("/dev/sda1", "/dev/sda2")) みたいにする
+  1. jq を nix から生成するようにして，`if .type == "part"` のところに，`and select(.path | IN("/dev/sda1", "/dev/sda2") | not)` みたいなのを追加する．
   2. gpt.nix の中に，
     ```if partition.content.skipFormat then ''
               
